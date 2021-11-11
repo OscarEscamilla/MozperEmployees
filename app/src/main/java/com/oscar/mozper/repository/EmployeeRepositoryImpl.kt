@@ -21,6 +21,7 @@ class EmployeeRepositoryImpl(
             dataSourceRemote.getEmployees().employees.forEach { employee ->
                 dataSourceLocal.saveEmployee(employee.toEmployeeEntity())
             }
+
             dataSourceLocal.getEmployees()
 
         } else {

@@ -9,6 +9,7 @@ object InternetCheck {
 
 
     suspend fun isNetworkAvailable() = coroutineScope {
+
         return@coroutineScope try {
 
             val sock = Socket()
@@ -21,7 +22,9 @@ object InternetCheck {
         }catch (e: Exception){
 
             false
+
         }
+
     }
 
 
