@@ -11,21 +11,5 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun employeeDao(): EmployeeDao
 
-    companion object {
-
-        private var INSTANCE: AppDatabase? = null
-
-
-        fun getDataBase(context: Context): AppDatabase {
-
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java,
-                "employees_db"
-            ).build()
-
-            return  INSTANCE!!
-        }
-    }
 
 }

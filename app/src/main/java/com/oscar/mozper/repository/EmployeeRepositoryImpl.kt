@@ -6,8 +6,9 @@ import com.oscar.mozper.data.local.LocalEmployeeDataSource
 import com.oscar.mozper.data.model.EmployeeResponse
 import com.oscar.mozper.data.model.toEmployeeEntity
 import com.oscar.mozper.data.remote.RemoteEmployeeDataSource
+import javax.inject.Inject
 
-class EmployeeRepositoryImpl(
+class EmployeeRepositoryImpl @Inject constructor(
     private val dataSourceRemote: RemoteEmployeeDataSource,
     private val dataSourceLocal: LocalEmployeeDataSource
 ) : EmployeeRepository {

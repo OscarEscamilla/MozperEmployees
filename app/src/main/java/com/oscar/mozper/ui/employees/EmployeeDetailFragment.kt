@@ -12,6 +12,7 @@ import com.oscar.mozper.databinding.FragmentEmployeDetailBinding
 import androidx.activity.OnBackPressedCallback
 import com.oscar.mozper.R
 import com.oscar.mozper.utils.toast
+import dagger.hilt.android.AndroidEntryPoint
 
 
 class EmployeeDetailFragment : Fragment() {

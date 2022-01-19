@@ -13,21 +13,21 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oscar.mozper.R
 import com.oscar.mozper.core.Resource
-import com.oscar.mozper.data.local.AppDatabase
-import com.oscar.mozper.data.local.LocalEmployeeDataSource
+
 import com.oscar.mozper.data.model.Employee
-import com.oscar.mozper.data.remote.RemoteEmployeeDataSource
 import com.oscar.mozper.databinding.FragmentEmployesBinding
 import com.oscar.mozper.presentation.EmployeViewModel
-import com.oscar.mozper.presentation.VMFactory
-import com.oscar.mozper.repository.EmployeeRepositoryImpl
-import com.oscar.mozper.repository.RetrofitClient
+
 import com.oscar.mozper.utils.toast
 import androidx.activity.OnBackPressedCallback
 import android.content.Intent
 import androidx.appcompat.app.AlertDialog
 import com.oscar.mozper.core.SessionManager
+import dagger.hilt.android.AndroidEntryPoint
 
+
+
+@AndroidEntryPoint
 class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
 
 
@@ -36,15 +36,8 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
 
     var toolbar: Toolbar? = null
 
-    // change to dependency injection
-    private val viewModel by viewModels<EmployeViewModel> {
-        VMFactory(
-            EmployeeRepositoryImpl(
-                RemoteEmployeeDataSource(RetrofitClient.webservice),
-                LocalEmployeeDataSource(AppDatabase.getDataBase(requireContext()).employeeDao())
-            )
-        )
-    }
+
+    private val viewModel by viewModels<EmployeViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

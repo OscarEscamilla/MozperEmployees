@@ -7,15 +7,12 @@ import com.oscar.mozper.data.local.AppDatabase
 import com.oscar.mozper.data.local.LocalEmployeeDataSource
 import com.oscar.mozper.data.remote.RemoteEmployeeDataSource
 import com.oscar.mozper.repository.EmployeeRepositoryImpl
-import com.oscar.mozper.repository.RetrofitClient
 import junit.framework.TestCase
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import com.google.common.truth.Truth
-import org.junit.Rule
 
 
 @RunWith(JUnit4::class)
@@ -40,7 +37,7 @@ class EmployeViewModelTest: TestCase(){
 
 
         val dataSource = LocalEmployeeDataSource(db.employeeDao())
-        val remote = RemoteEmployeeDataSource(RetrofitClient.webservice)
+        val remote = RemoteEmployeeDataSource()
 
 
         val repositoryImpl = EmployeeRepositoryImpl(remote,dataSource)
