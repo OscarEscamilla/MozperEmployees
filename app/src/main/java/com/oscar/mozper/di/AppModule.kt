@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.moviesapp.utils.AppConstants
 import com.google.gson.GsonBuilder
 import com.oscar.mozper.data.local.AppDatabase
+import com.oscar.mozper.data.local.EmployeeDao
 import com.oscar.mozper.repository.WebService
 import dagger.Module
 import dagger.Provides
@@ -25,7 +26,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRoomInstance(@ApplicationContext context: Context) =
+    fun provideRoomInstance(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(
             context.applicationContext,
             AppDatabase::class.java,
@@ -34,7 +35,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideEmpleoyeeDao(db : AppDatabase) = db.employeeDao()
+    fun provideEmpleoyeeDao(db : AppDatabase): EmployeeDao = db.employeeDao()
 
 
     @Singleton

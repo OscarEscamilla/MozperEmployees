@@ -9,15 +9,17 @@ import com.oscar.mozper.repository.EmployeeRepository
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
-class EmployeViewModel @ViewModelInject constructor(private val repo: EmployeeRepository): ViewModel() {
+class EmployeViewModel @ViewModelInject constructor(private val repo: EmployeeRepository) :
+    ViewModel() {
 
-    val fetchEmployes = liveData(Dispatchers.IO){
+    val fetchEmployes = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
             emit(Resource.Succes(repo.getEmployees()))
-        }catch (e: Exception){
+        } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
     }
+
 
 }

@@ -11,17 +11,22 @@ import com.oscar.mozper.data.model.Employee
 import com.oscar.mozper.databinding.EmployeeItemBinding
 import com.oscar.mozper.core.BaseViewHolder
 
-class EmployeesAdapter(private val context: Context, private val items: List<Employee>, private val itemClickListener: OnEmployeeClickListener)
-    : RecyclerView.Adapter<BaseViewHolder<*>>(){
+class EmployeesAdapter(
+    private val context: Context,
+    private val items: List<Employee>,
+    private val itemClickListener: OnEmployeeClickListener
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    interface OnEmployeeClickListener{
+    interface OnEmployeeClickListener {
 
         fun onEmployeeClick(employee: Employee)
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        return  ViewHolder(LayoutInflater.from(context).inflate( R.layout.employee_item, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.employee_item, parent, false)
+        )
     }
 
 
@@ -30,12 +35,12 @@ class EmployeesAdapter(private val context: Context, private val items: List<Emp
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
-        when(holder){
+        when (holder) {
             is ViewHolder -> holder.bind(items[position], position)
         }
     }
 
-    inner class ViewHolder(itemView: View): BaseViewHolder<Employee>(itemView){
+    inner class ViewHolder(itemView: View) : BaseViewHolder<Employee>(itemView) {
 
         val binding = EmployeeItemBinding.bind(itemView)
 
@@ -51,7 +56,7 @@ class EmployeesAdapter(private val context: Context, private val items: List<Emp
                 .placeholder(R.drawable.user_placeholder)
                 .into(binding.imgAvatar)
 
-            binding.employeeItem.setOnClickListener {  itemClickListener.onEmployeeClick(item)}
+            binding.employeeItem.setOnClickListener { itemClickListener.onEmployeeClick(item) }
 
 
         }

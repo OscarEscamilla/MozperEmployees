@@ -26,7 +26,6 @@ import com.oscar.mozper.core.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
 
 
-
 @AndroidEntryPoint
 class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
 
@@ -68,7 +67,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
 
         when (item.itemId) {
             R.id.itemLogout -> {
-               showAlertLogout()
+                showAlertLogout()
             }
         }
 
@@ -76,7 +75,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
     }
 
 
-    fun showAlertLogout(){
+    fun showAlertLogout() {
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -86,7 +85,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
                     sessionManager.deleteSession()
                     findNavController().navigate(R.id.action_employesFragment_to_loginFragment)
                 }
-                setNegativeButton("Cancel"){ dialog, id ->
+                setNegativeButton("Cancel") { dialog, id ->
                     dialog.dismiss()
 
 
@@ -120,7 +119,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
 
         initViewComponents()
 
-        viewModel.fetchEmployes.observe(viewLifecycleOwner, { result ->
+        viewModel.fetchEmployes.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Resource.Loading -> {
 
@@ -133,6 +132,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
                     binding.progressBar.visibility = View.GONE
                     binding.rvEmployes.adapter =
                         EmployeesAdapter(requireContext(), result.data.employees, this)
+
                 }
                 is Resource.Failure -> {
                     binding.progressBar.visibility = View.GONE
@@ -140,7 +140,7 @@ class EmployeesFragment : Fragment(), EmployeesAdapter.OnEmployeeClickListener {
                     Log.d("LiveData2", "${result.exception}")
                 }
             }
-        })
+        }
     }
 
 

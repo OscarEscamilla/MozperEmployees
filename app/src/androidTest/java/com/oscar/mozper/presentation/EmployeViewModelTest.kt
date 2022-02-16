@@ -37,13 +37,8 @@ class EmployeViewModelTest: TestCase(){
 
 
         val dataSource = LocalEmployeeDataSource(db.employeeDao())
-        val remote = RemoteEmployeeDataSource()
 
 
-        val repositoryImpl = EmployeeRepositoryImpl(remote,dataSource)
-
-
-        viewModel = EmployeViewModel(repositoryImpl)
 
 
     }
