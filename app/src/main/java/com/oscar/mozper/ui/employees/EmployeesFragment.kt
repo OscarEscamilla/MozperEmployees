@@ -1,6 +1,5 @@
 package com.oscar.mozper.ui.employees
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -22,7 +21,7 @@ import com.oscar.mozper.utils.toast
 import androidx.activity.OnBackPressedCallback
 import android.content.Intent
 import androidx.appcompat.app.AlertDialog
-import com.oscar.mozper.core.SessionManager
+import com.oscar.mozper.data.local.SessionManager
 import dagger.hilt.android.AndroidEntryPoint
 
 

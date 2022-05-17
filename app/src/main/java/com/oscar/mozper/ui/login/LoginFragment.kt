@@ -6,12 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.oscar.mozper.R
-import com.oscar.mozper.core.SessionManager
+import com.oscar.mozper.data.local.SessionManager
 import com.oscar.mozper.databinding.FragmentLoginBinding
-import com.oscar.mozper.utils.toast
 import android.text.TextUtils
 import android.util.Patterns
 import androidx.activity.OnBackPressedCallback

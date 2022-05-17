@@ -1,4 +1,4 @@
-package com.oscar.mozper.core
+package com.oscar.mozper.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

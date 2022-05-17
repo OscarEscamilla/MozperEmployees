@@ -1,4 +1,4 @@
-package com.oscar.mozper
+package com.oscar.mozper.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

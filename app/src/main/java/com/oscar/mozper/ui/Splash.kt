@@ -9,7 +9,7 @@ import com.oscar.mozper.R
 import android.os.Handler
 import android.os.Looper
 import androidx.navigation.fragment.findNavController
-import com.oscar.mozper.core.SessionManager
+import com.oscar.mozper.data.local.SessionManager
 
 class Splash : Fragment() {
 
